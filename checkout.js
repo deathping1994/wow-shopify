@@ -25,7 +25,7 @@ $(document).on(`page:load page:change`, function () {
         var basecode = $("#checkout_reduction_code")[0].value;
         $.ajax({
             type: "POST",
-            url: "https://farzipromo-api-stage.farziengineer.co/discount",
+            url: "https://wow-api.farziengineer.co/discount",
             headers: { "Content-Type": "application/json" },
             data: `{"code":"${basecode}", "cartId":"${token}"}`,
         }).then((response) => {
