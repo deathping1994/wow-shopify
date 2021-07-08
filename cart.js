@@ -81,7 +81,6 @@ setTimeout(function () {
                     },
                     data: `{"code":"${basecode}", "cartId":"${token}"}`,
                 }).then((response) => {
-                    console.log("found",response)
                     if (response == "true" || response == "True") {
                         $(".ucd-discount-field")[0].value = basecode;
                         $(".ucd-apply-discount-code").click();
