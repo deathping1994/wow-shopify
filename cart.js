@@ -63,14 +63,12 @@ setTimeout(function () {
             $.getJSON('/cart.js', function (cart) {
                 token = cart.token
             });
-            console.log("started")
-            console.log(token)
             $(".ucd-apply-discount-code-farzipromo").on("click touchstart", function (event) {
                 event.preventDefault();
                 var basecode = $(".ucd-discount-field-farzipromo")[0].value;
                 $.ajax({
                     type: "POST",
-                    url: "https://farzipromo-api-stage.farziengineer.co/discount",
+                    url: "https://wow-api.farziengineer.co/discount",
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -82,7 +80,6 @@ setTimeout(function () {
                         $(".ucd-apply-discount-code").click();
                         }
                 }).fail((response) => {
-                    console.log("not found",response)
                     $(".ucd-discount-field")[0].value = basecode;
                     $(".ucd-apply-discount-code").click();
                 });
@@ -90,12 +87,10 @@ setTimeout(function () {
 
             var interval = setInterval(() => {
                 if ($(".ucd-discount-code-grid").length != 0 && $(".upside-ucd-discount-grid").length == 0) {
-                    console.log("showing")
                     $(".ucd-discount-code-grid-farzipromo").show()
                     $(".ucd-discount-code-grid").hide()
                 }
                 if ($(".upside-ucd-discount-grid").length != 0) {
-                    console.log("hiding")
                     $(".ucd-discount-code-grid").show()
                     $(".ucd-discount-code-grid-farzipromo").hide()
                 }
