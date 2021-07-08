@@ -1,3 +1,5 @@
+setTimeout(function () {
+
 $('.order-summary__section--discount .fieldset').append(`<div class="field">
   <div class="commander-wrapper">
       <input placeholder="Discount Code" class="commander-input" data-discount-field="true" autocomplete="off" aria-required="true" size="30" type="text" name="checkout[reduction_code]">
@@ -24,7 +26,7 @@ $(".order-summary__section--discount .field__input-btn").on("click touchstart",f
       var basecode = $("#checkout_reduction_code")[0].value;
       $.ajax({
         type: "POST",
-        url: "https://wow-api.farziengineer.co/discount",
+        url: "https://farzipromo-api-stage.farziengineer.co/discount",
         headers: { "Content-Type": "application/json" },
         data: `{"code":"${basecode}", "cartId":"${token}"}`,
       }).then((response) => {
@@ -39,3 +41,4 @@ $(".order-summary__section--discount .field__input-btn").on("click touchstart",f
         });
     }
   );
+}, 5000);
