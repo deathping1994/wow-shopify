@@ -59,6 +59,13 @@ setTimeout(function () {
                 "text-transform":" uppercase",
                 "visibility":" visible",
             })
+            $(".ucd-discount-error-farzipromo").css({
+                "font-size": "12px",
+                "font-weight": "bold",
+                "color": "#A40000",
+                "text-transform": "uppercase",
+                "line-height": "1.3",
+            })
             var token = ""
             $.getJSON('/cart.js', function (cart) {
                 token = cart.token
@@ -94,6 +101,7 @@ setTimeout(function () {
                     $(".ucd-discount-code-grid").show()
                     $(".ucd-discount-code-grid-farzipromo").hide()
                 }
+                $(".ucd-discount-error-farzipromo").text($(".ucd-discount-error").text());
             }, 200);
         }
     }, 1000);
