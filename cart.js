@@ -115,7 +115,7 @@ setTimeout(function () {
                                     clearInterval(v);
                                 }
                             }, 500);
-                        }, 2000);
+                        }, 3000);
                     }
                 }).fail((response) => {
                     $(".ucd-discount-field")[0].value = basecode;
@@ -151,7 +151,7 @@ setTimeout(function () {
                                 clearInterval(v);
                             }
                         }, 500);
-                    }, 2000);
+                    }, 3000);
                 });
             });
 
