@@ -29,35 +29,35 @@ setTimeout(function () {
                 "padding": "10px 130px 10px 10px",
                 "width": "100%",
                 "border": "1px solid #ccc",
-                "font-size":"14px",
+                "font-size": "14px",
                 "outline": "none",
                 "float": "none",
                 "cursor": "pointer",
-                "margin":"0",
+                "margin": "0",
             })
             $('.ucd-apply-discount-code-farzipromo').css({
-                "position":" absolute",
-                "top":" 0",
-                "right":" 0",
-                "bottom":" 0",
-                "padding":" 10px 40px",
-                "line-height":" normal",
-                "width":" auto",
-                "min-width":" 0",
-                "height":" auto !important",
-                "min-height":" 0",
-                "outline":" none",
-                "float":" none",
-                "margin":" 0",
-                "color":" var(--ucd-button-color, #fff)",
-                "background-color":" var(--ucd-button-background-color, #64cf7d)",
-                "border":" 0",
-                "font-size":" 12px",
-                "font-weight":" var(--ucd-button-font-weight, normal)",
-                "border-radius":" 0",
-                "cursor":" pointer",
-                "text-transform":" uppercase",
-                "visibility":" visible",
+                "position": " absolute",
+                "top": " 0",
+                "right": " 0",
+                "bottom": " 0",
+                "padding": " 10px 40px",
+                "line-height": " normal",
+                "width": " auto",
+                "min-width": " 0",
+                "height": " auto !important",
+                "min-height": " 0",
+                "outline": " none",
+                "float": " none",
+                "margin": " 0",
+                "color": " var(--ucd-button-color, #fff)",
+                "background-color": " var(--ucd-button-background-color, #64cf7d)",
+                "border": " 0",
+                "font-size": " 12px",
+                "font-weight": " var(--ucd-button-font-weight, normal)",
+                "border-radius": " 0",
+                "cursor": " pointer",
+                "text-transform": " uppercase",
+                "visibility": " visible",
             })
             $(".ucd-discount-error-farzipromo").css({
                 "font-size": "12px",
@@ -84,10 +84,74 @@ setTimeout(function () {
                     if (response == "true" || response == "True") {
                         $(".ucd-discount-field")[0].value = basecode;
                         $(".ucd-apply-discount-code").click();
-                        }
+                        setTimeout(function () {
+                            var couponlog_postrequest = {
+                                url: "https://farzipromo-api-stage.farziengineer.co/couponlog",
+                                method: "POST",
+                                timeout: 0,
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                            };
+                            var v = setInterval(function () {
+                                if ($(".upside-ucd-discount-grid .ucd-discount-label strong").text().length != 0 && $(".ucd-discount-error-farzipromo").text().length == 0) {
+                                    couponlog_postrequest.data = JSON.stringify({
+                                        coupon: basecode,
+                                        log: $(".upside-ucd-discount-grid .ucd-discount-label strong").text(),
+                                    });
+                                    $.ajax(couponlog_postrequest).done(function (response) {
+                                        console.log(response);
+                                    });
+                                    clearInterval(v);
+                                }
+                                else if ($(".upside-ucd-discount-grid .ucd-discount-label strong").text().length == 0 && $(".ucd-discount-error-farzipromo").text().length != 0) {
+                                    couponlog_postrequest.data = JSON.stringify({
+                                        coupon: basecode,
+                                        log: $(".ucd-discount-error-farzipromo").text(),
+                                    });
+                                    $.ajax(couponlog_postrequest).done(function (response) {
+                                        console.log(response);
+                                    });
+                                    clearInterval(v);
+                                }
+                            }, 500);
+                        }, 2000);
+                    }
                 }).fail((response) => {
                     $(".ucd-discount-field")[0].value = basecode;
                     $(".ucd-apply-discount-code").click();
+                    setTimeout(function () {
+                        var couponlog_postrequest = {
+                            url: "https://farzipromo-api-stage.farziengineer.co/couponlog",
+                            method: "POST",
+                            timeout: 0,
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                        };
+                        var v = setInterval(function () {
+                            if ($(".upside-ucd-discount-grid .ucd-discount-label strong").text().length != 0 && $(".ucd-discount-error-farzipromo").text().length == 0) {
+                                couponlog_postrequest.data = JSON.stringify({
+                                    coupon: basecode,
+                                    log: $(".upside-ucd-discount-grid .ucd-discount-label strong").text(),
+                                });
+                                $.ajax(couponlog_postrequest).done(function (response) {
+                                    console.log(response);
+                                });
+                                clearInterval(v);
+                            }
+                            else if ($(".upside-ucd-discount-grid .ucd-discount-label strong").text().length == 0 && $(".ucd-discount-error-farzipromo").text().length != 0) {
+                                couponlog_postrequest.data = JSON.stringify({
+                                    coupon: basecode,
+                                    log: $(".ucd-discount-error-farzipromo").text(),
+                                });
+                                $.ajax(couponlog_postrequest).done(function (response) {
+                                    console.log(response);
+                                });
+                                clearInterval(v);
+                            }
+                        }, 500);
+                    }, 2000);
                 });
             });
 
