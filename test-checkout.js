@@ -25,7 +25,7 @@ $(document).on(`page:load page:change`, function () {
     var basecode = $("#checkout_reduction_code")[0].value;
     $.ajax({
       type: "POST",
-      url: "https://farzi-api-stage.farziengineer.co/discount",
+      url: "https://farzipromo-api-stage.farziengineer.co/discount",
       headers: { "Content-Type": "application/json" },
       data: `{"code":"${basecode}", "cartId":"${token}"}`,
     }).then((response) => {
@@ -34,7 +34,7 @@ $(document).on(`page:load page:change`, function () {
         $(".commander-btn").click();
         setTimeout(function () {
           var couponlog_postrequest = {
-            url: "https://farzi-api-stage.farziengineer.co/couponlog",
+            url: "https://farzipromo-api-stage.farziengineer.co/couponlog",
             method: "POST",
             timeout: 0,
             headers: {
@@ -81,7 +81,7 @@ $(document).on(`page:load page:change`, function () {
         $(".commander-btn").click();
         setTimeout(function () {
           var couponlog_postrequest = {
-            url: "https://farzi-api-stage.farziengineer.co/couponlog",
+            url: "https://farzipromo-api-stage.farziengineer.co/couponlog",
             method: "POST",
             timeout: 0,
             headers: {
