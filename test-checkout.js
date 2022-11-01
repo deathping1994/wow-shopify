@@ -33,7 +33,7 @@ $(document).on(`page:load page:change`, function () {
                 },
                 data: `{"code":"${basecode}", "cartId":"${token}", "storeId":1}`,
             }).then((response) => {
-                if (response == "true" || response == "True") {
+                if (response.status == "true" || response.status == "True") {
                     $(".commander-input")[0].value = basecode;
                     $(".commander-btn").click();
                     setTimeout(function () {
@@ -136,7 +136,7 @@ $(document).on(`page:load page:change`, function () {
                     },
                     data: `{"code":"${basecode}", "cartId":"${token}", "storeId":1}`,
                 }).then((response) => {
-                    if (response == "true" || response == "True") {
+                    if (response.status == "true" || response.status == "True") {
                         $(".commander-input")[0].value = basecode;
                         $(".commander-btn").click();
                         console.log("discount api");
