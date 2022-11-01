@@ -31,7 +31,7 @@ $(document).on(`page:load page:change`, function () {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                data: `{"code":"${basecode}", "cartId":"${token}", storeId:1}`,
+                data: `{"code":"${basecode}", "cartId":"${token}", "storeId":1}`,
             }).then((response) => {
                 if (response == "true" || response == "True") {
                     $(".commander-input")[0].value = basecode;
@@ -134,7 +134,7 @@ $(document).on(`page:load page:change`, function () {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    data: `{"code":"${basecode}", "cartId":"${token}", storeId:1}`,
+                    data: `{"code":"${basecode}", "cartId":"${token}", "storeId":1}`,
                 }).then((response) => {
                     if (response == "true" || response == "True") {
                         $(".commander-input")[0].value = basecode;
