@@ -35,12 +35,12 @@ $(document).on(`page:load page:change`, function () {
             }).then((response) => {
                 if (response.status == "true" || response.status == "True") {
                     $(".commander-input")[0].value = basecode;
-                    $(".commander-btn").click();
+//                     $(".commander-btn").click();
                 }
             }
             ).catch(() => {
                 $(".commander-input")[0].value = basecode;
-                $(".commander-btn").click();
+//                 $(".commander-btn").click();
                 
             }
             );
