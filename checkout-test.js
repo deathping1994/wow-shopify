@@ -42,7 +42,7 @@ $(document).on(`page:load page:change`, function () {
                 $(".commander-input")[0].value = basecode;
                 setTimeout(function(){
                     $(".commander-btn").click();
-                },2000)
+                },3000)
                 
             }
             );
