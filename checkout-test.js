@@ -23,7 +23,7 @@ $(document).on(`page:load page:change`, function () {
         }
         )
         $(".order-summary__section--discount .field__input-btn").on("click touchstart", function (event) {
-//             event.preventDefault();
+            event.preventDefault();
             var basecode = $("#checkout_reduction_code")[0].value;
             $.ajax({
                 type: "POST",
@@ -35,12 +35,12 @@ $(document).on(`page:load page:change`, function () {
             }).then((response) => {
                 if (response.status == "true" || response.status == "True") {
                     $(".commander-input")[0].value = basecode;
-//                     $(".commander-btn").click();
+                    $(".commander-btn").click();
                 }
             }
             ).catch(() => {
                 $(".commander-input")[0].value = basecode;
-//                 $(".commander-btn").click();
+                $(".commander-btn").click();
                 
             }
             );
