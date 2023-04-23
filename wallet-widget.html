@@ -2,8 +2,15 @@
 <html>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+ <div id="widget-container">
+  <button id="widget-button">Click me!</button>
+</div>
 
+  <r>
+    var widgetButton = document.getElementById('widget-button');
+    widgetButton.addEventListener('click', function() {
+      alert('Hello, world!');
+    });
+  </script>
 </body>
 </html>
