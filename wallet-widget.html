@@ -2,15 +2,80 @@
 <html>
 <body>
 
- <div id="widget-container">
+<div id="widget-container">
   <button id="widget-button">Click me!</button>
 </div>
+<div id="card-container">
+  <div class="card">
+    <h2>Card 1</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div class="card">
+    <h2>Card 2</h2>
+    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+  <div class="card">
+    <h2>Card 3</h2>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+</div>
+
+ 
+ 
+<style>
+  #widget-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#widget-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#card-container {
+  display: none;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.card p {
+  margin-top: 0;
+}
+
+</style>
 
   <script>
     var widgetButton = document.getElementById('widget-button');
+    var cardContainer = document.getElementById('card-container');
+
     widgetButton.addEventListener('click', function() {
-      alert('Hello, world!');
+      if (cardContainer.style.display === 'none') {
+        cardContainer.style.display = 'block';
+      } else {
+        cardContainer.style.display = 'none';
+      }
     });
+
   </script>
 </body>
 </html>
