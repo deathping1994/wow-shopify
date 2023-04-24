@@ -152,8 +152,12 @@
     widgetButton.addEventListener('click', function() {
       if (cardContainer.style.display === 'none') {
         cardContainer.style.display = 'block';
+        var iframe = document.getElementById("my-iframe");
+        iframe.style.height = "500px";
       } else {
         cardContainer.style.display = 'none';
+          var iframe = document.getElementById("my-iframe");
+        iframe.style.height = "500px";
       }
     });
 
