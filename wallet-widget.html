@@ -2,44 +2,9 @@
 <html>
 <body>
 
-<div id="widget-container" style="
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #dfc0e2;
-    padding: 1rem;
-    cursor: pointer;
-    -webkit-box-shadow: 0 0.0625em 0.0625em rgba(0,0,0,.25), 0 0.125em 0.5em rgba(0,0,0,.25), inset 0 0 0 1px hsla(0,0%,100%,.1);
-    box-shadow: 0 0.0625em 0.0625em rgba(0,0,0,.25), 0 0.125em 0.5em rgba(0,0,0,.25), inset 0 0 0 1px hsla(0,0%,100%,.1);
-">
-<span style="
-    box-sizing: border-box;
-    display: block;
-    width: initial;
-    height: initial;
-    background: none;
-    opacity: 1;
-    border: 0px;
-    margin: 0px;
-    padding: 100% 0px 0px;
-"><img src="https://wowshopify.farziengineer.co/wallet2.png" style="
-    position: absolute;
-    inset: 0px;
-    box-sizing: border-box;
-    padding: 0px;
-    border: none;
-    margin: auto;
-    display: block;
-    width: 0px;
-    height: 0px;
-    min-width: 45%;
-    max-width: 50%;
-    min-height: 45%;
-    max-height: 50%;
-"></span>
+<div id="widget-container">
+<span>
+    <img id="widget-img" src="https://wowshopify.farziengineer.co/wallet.png"></span>
 </div>
 <div id="card-container">
   <div class="card">
@@ -60,14 +25,42 @@
  
 <style>
   #widget-container {
+  display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #dfc0e2;
+    padding: 1rem;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0.0625em 0.0625em rgba(0,0,0,.25), 0 0.125em 0.5em rgba(0,0,0,.25), inset 0 0 0 1px hsla(0,0%,100%,.1);
+    box-shadow: 0 0.0625em 0.0625em rgba(0,0,0,.25), 0 0.125em 0.5em rgba(0,0,0,.25), inset 0 0 0 1px hsla(0,0%,100%,.1);
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #f1f1f1;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
+ 
+#widget-img{
+    
+    position: absolute;
+    inset: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    border: none;
+    margin: auto;
+    display: block;
+    width: 0px;
+    height: 0px;
+    min-width: 50%;
+    max-width: 50%;
+    min-height: 50%;
+    max-height: 50%;
+    
+    }
 
 #widget-button {
   background-color: #4CAF50;
@@ -101,7 +94,7 @@
 </style>
 
   <script>
-    var widgetButton = document.getElementById('widget-button');
+    var widgetButton = document.getElementById('widget-container');
     var cardContainer = document.getElementById('card-container');
 
     widgetButton.addEventListener('click', function() {
